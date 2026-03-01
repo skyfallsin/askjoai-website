@@ -25,7 +25,7 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;700;900&family=Cabinet+Grotesk:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,13 +46,13 @@
             --text-dim: #8BA3C7;
             --text-muted: #4A6A8A;
             --border: rgba(0,212,255,0.12);
-            --font: 'Satoshi', -apple-system, sans-serif;
-            --font-display: 'Cabinet Grotesk', 'Satoshi', sans-serif;
+            --font: 'JetBrains Mono', 'SF Mono', 'Menlo', 'Consolas', monospace;
+            --font-display: 'JetBrains Mono', 'SF Mono', 'Menlo', 'Consolas', monospace;
             --radius: 20px;
         }
 
         html { scroll-behavior: smooth; scroll-padding-top: 100px; }
-        body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; letter-spacing: -0.02em; }
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
@@ -63,16 +63,16 @@
             border-bottom: 1px solid var(--border); padding: 12px 32px;
             display: flex; justify-content: space-between; align-items: center;
         }
-        .logo { font-family: var(--font-display); font-size: 32px; font-weight: 900; color: #00D4FF; text-decoration: none; }
+        .logo { font-family: var(--font-display); font-size: 32px; font-weight: 800; color: #00D4FF; text-decoration: none; }
         .nav-links { display: flex; gap: 28px; }
         .nav-links a { color: var(--text-dim); text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.2s; }
         .nav-links a:hover { color: var(--orange); }
         .mobile-toggle {
             display: none; background: none; border: none; cursor: pointer;
-            font-size: 24px; color: var(--text); padding: 4px 8px; line-height: 1;
+            font-size: 24px; color: #E8F0FF; padding: 4px 8px; line-height: 1;
         }
         .btn-bold {
-            background: var(--text); color: #fff; font-weight: 700;
+            background: #00D4FF; color: #0B1628; font-weight: 700;
             padding: 12px 28px; border-radius: 100px; text-decoration: none;
             font-size: 15px; border: none; cursor: pointer;
             transition: all 0.2s; display: inline-flex; align-items: center;
@@ -101,12 +101,12 @@
             font-size: 13px; font-weight: 700; color: var(--orange);
             background: rgba(0,212,255,0.1); border: 2px solid rgba(0,212,255,0.25);
             padding: 8px 18px; border-radius: 100px; margin-bottom: 28px;
-            text-transform: uppercase; letter-spacing: 0.08em;
+            text-transform: uppercase; letter-spacing: 0.04em;
         }
 
         h1 {
             font-family: var(--font-display); font-size: clamp(48px, 10vw, 96px);
-            font-weight: 900; line-height: 0.95; letter-spacing: -0.04em;
+            font-weight: 800; line-height: 0.95; letter-spacing: -0.05em;
             margin-bottom: 24px;
         }
         h1 .color-block {
@@ -175,7 +175,7 @@
         .section-header { text-align: center; margin-bottom: 64px; }
         .section-header h2 {
             font-family: var(--font-display); font-size: clamp(32px, 6vw, 56px);
-            font-weight: 900; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 12px;
+            font-weight: 800; letter-spacing: -0.05em; line-height: 1.05; margin-bottom: 12px;
         }
         .section-header p { font-size: 17px; color: var(--text-dim); max-width: 550px; margin: 0 auto; }
         .section-dark .section-header h2 { color: #fff; }
@@ -199,7 +199,7 @@
         .demo-bar span { flex: 1; text-align: center; font-size: 14px; color: var(--text-muted); font-weight: 700; }
         .demo-bar-spacer { width: 36px; display: inline-block; }
         .demo-body { padding: 28px; }
-        .demo-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+        .demo-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
         .demo-user .demo-label { color: var(--text-muted); }
         .demo-jo .demo-label { color: var(--orange); }
         .demo-user p { color: var(--text-dim); font-size: 15px; margin-bottom: 20px; }
@@ -222,11 +222,11 @@
         }
         .cmp-card .cmp-tag {
             display: inline-block; font-size: 11px; font-weight: 800; text-transform: uppercase;
-            letter-spacing: 0.1em; padding: 4px 12px; border-radius: 8px; margin-bottom: 12px;
+            letter-spacing: 0.05em; padding: 4px 12px; border-radius: 8px; margin-bottom: 12px;
         }
         .cmp-card.featured .cmp-tag { background: var(--hot-pink); color: #fff; }
         .cmp-card .cmp-tag { background: rgba(0,87,255,0.08); color: var(--electric-blue); }
-        .cmp-card h3 { font-family: var(--font-display); font-size: 18px; font-weight: 900; margin-bottom: 8px; }
+        .cmp-card h3 { font-family: var(--font-display); font-size: 18px; font-weight: 800; margin-bottom: 8px; }
         .cmp-card.featured h3 { font-size: 22px; color: var(--hot-pink); }
         .cmp-card p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
         .cmp-card p code { background: var(--bg-dark); color: var(--lime); padding: 2px 8px; border-radius: 4px; font-size: 0.85em; }
@@ -237,14 +237,14 @@
         .step-circle {
             width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 20px;
             display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-display); font-size: 40px; font-weight: 900;
+            font-family: var(--font-display); font-size: 40px; font-weight: 800;
             color: #fff; transition: transform 0.3s;
         }
         .step:nth-child(1) .step-circle { background: #00D4FF; color: #0B1628; }
         .step:nth-child(2) .step-circle { background: #FF2D78; }
         .step:nth-child(3) .step-circle { background: #9B30FF; }
         .step:hover .step-circle { transform: scale(1.1) rotate(-5deg); }
-        .step h3 { font-family: var(--font-display); font-size: 22px; font-weight: 900; margin-bottom: 8px; }
+        .step h3 { font-family: var(--font-display); font-size: 22px; font-weight: 800; margin-bottom: 8px; }
         .step p { font-size: 14px; color: var(--text-dim); max-width: 260px; margin: 0 auto; line-height: 1.6; }
         .step p code { background: var(--bg-dark); color: var(--lime); padding: 1px 6px; border-radius: 4px; font-size: 0.85em; }
 
@@ -261,7 +261,7 @@
             background: linear-gradient(135deg, rgba(0,212,255,0.06), var(--bg-white));
         }
         .feat-card .emoji { font-size: 32px; margin-bottom: 12px; display: block; }
-        .feat-card h3 { font-family: var(--font-display); font-size: 17px; font-weight: 900; margin-bottom: 8px; }
+        .feat-card h3 { font-family: var(--font-display); font-size: 17px; font-weight: 800; margin-bottom: 8px; }
         .feat-card.hero-feat h3 { font-size: 21px; }
         .feat-card p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
 
@@ -310,15 +310,15 @@
         .pricing-card .ribbon {
             position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
             background: #00D4FF; color: #0B1628; font-weight: 800; font-size: 12px;
-            padding: 6px 20px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.1em;
+            padding: 6px 20px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em;
         }
-        .price-big { font-family: var(--font-display); font-size: 64px; font-weight: 900; margin-bottom: 4px; }
+        .price-big { font-family: var(--font-display); font-size: 64px; font-weight: 800; margin-bottom: 4px; }
         .price-big span { font-size: 24px; font-weight: 500; color: var(--text-dim); }
         .pricing-card > p { font-size: 15px; color: var(--text-dim); margin-bottom: 28px; }
         .price-details { display: flex; justify-content: center; gap: 32px; padding-top: 24px; border-top: 3px solid var(--border); }
         .price-details .d { text-align: center; }
-        .price-details .label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em; }
-        .price-details .val { font-family: var(--font-display); font-size: 20px; font-weight: 900; color: var(--orange); margin-top: 4px; }
+        .price-details .label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-weight: 700; letter-spacing: 0.04em; }
+        .price-details .val { font-family: var(--font-display); font-size: 20px; font-weight: 800; color: var(--orange); margin-top: 4px; }
 
         /* ── FAQ ── */
         .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; max-width: 1000px; margin: 0 auto; }
@@ -334,7 +334,7 @@
         .privacy-block { max-width: 700px; margin: 0 auto; text-align: center; }
         .privacy-block h2 {
             font-family: var(--font-display); font-size: clamp(36px, 7vw, 64px);
-            font-weight: 900; letter-spacing: -0.03em; margin-bottom: 16px;
+            font-weight: 800; letter-spacing: -0.05em; margin-bottom: 16px;
         }
         .privacy-block .hl { background: var(--lime); padding: 0 8px; border-radius: 4px; display: inline-block; transform: rotate(-1deg); }
         .privacy-block > p { font-size: 17px; color: var(--text-dim); margin-bottom: 28px; line-height: 1.7; }
@@ -367,7 +367,7 @@
         .final-cta > * { position: relative; z-index: 1; }
         .final-cta h2 {
             font-family: var(--font-display); font-size: clamp(36px, 7vw, 56px);
-            font-weight: 900; letter-spacing: -0.03em; margin-bottom: 12px; color: #fff;
+            font-weight: 800; letter-spacing: -0.05em; margin-bottom: 12px; color: #fff;
         }
         .final-cta p { font-size: 18px; margin-bottom: 36px; opacity: 0.9; color: rgba(255,255,255,0.85); }
         .final-cta .email-form { margin: 0 auto 16px; justify-content: center; }
@@ -429,7 +429,7 @@
         .narrative-card:hover { transform: translateY(-4px); border-color: var(--electric-blue); }
         .narrative-card.wide { grid-column: 1 / -1; }
         .narrative-card .emoji { font-size: 32px; margin-bottom: 12px; display: block; }
-        .narrative-card h3 { font-family: var(--font-display); font-size: 20px; font-weight: 900; margin-bottom: 8px; }
+        .narrative-card h3 { font-family: var(--font-display); font-size: 20px; font-weight: 800; margin-bottom: 8px; }
         .narrative-card p { font-size: 15px; color: var(--text-dim); line-height: 1.7; }
         .narrative-card .scene { font-size: 14px; color: var(--text-muted); font-style: italic; margin-bottom: 12px; }
 
@@ -449,7 +449,9 @@
 
         /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
-            .mobile-toggle { display: block; }
+            .mobile-toggle { display: block; order: 3; }
+            nav .btn-bold { padding: 8px 16px; font-size: 12px; margin-left: 12px; order: 2; }
+            .logo { order: 1; }
             .nav-links {
                 display: none; position: absolute; top: 100%; left: 0; right: 0;
                 background: rgba(11,22,40,0.98); backdrop-filter: blur(20px);
@@ -496,7 +498,7 @@
 </nav>
 
 <main>
-<section class="hero" style="flex-direction: column; min-height: auto; padding-top: 100px;">
+<section class="hero" style="flex-direction: column; min-height: auto; padding-top: 56px;">
     <div class="container" style="width: 100%; max-width: 100%; padding: 0;">
         <div style="width: 100%; margin-bottom: 60px;">
             <img src="jo-1-0-landscape.png" alt="jo 1.0" style="width: 100%; height: auto; display: block;">
