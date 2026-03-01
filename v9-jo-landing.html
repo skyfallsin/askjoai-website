@@ -497,17 +497,56 @@
         /* Scroll-triggered reveal */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(24px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-1 { transition-delay: 0.08s; }
+        .reveal-delay-2 { transition-delay: 0.16s; }
+        .reveal-delay-3 { transition-delay: 0.24s; }
+        .reveal-delay-4 { transition-delay: 0.32s; }
+        .reveal-delay-5 { transition-delay: 0.40s; }
+        .reveal-delay-6 { transition-delay: 0.48s; }
+        .reveal-delay-7 { transition-delay: 0.56s; }
+        .reveal-delay-8 { transition-delay: 0.64s; }
+
+        /* Typewriter effect for key headlines */
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid var(--orange);
+            white-space: nowrap;
+            width: 0;
+            display: inline-block;
+            animation: typewrite 1.8s steps(30, end) forwards, blinkCaret 0.6s step-end 4;
+        }
+        .typewriter.visible {
+            width: auto;
+        }
+        @keyframes typewrite {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blinkCaret {
+            50% { border-color: transparent; }
+        }
+        /* After typing finishes, hide caret */
+        .typewriter.caret-done { border-right-color: transparent; }
+
+        /* Word-by-word reveal for select paragraphs */
+        .word-reveal .word {
+            opacity: 0;
+            transform: translateY(8px);
+            display: inline-block;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            margin-right: 0.3em;
+        }
+        .word-reveal.visible .word {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* Hero image glow */
         .hero-image-wrap {
@@ -632,7 +671,7 @@
     <div class="container">
         <div class="hero-content">
             <div class="hero-badge">● Now in Beta</div>
-            <h1>Your AI. Your machine.<br><span class="color-block">10x faster.</span></h1>
+            <h1>Your AI. Your machine.<br><span class="color-block typewriter">10x faster.</span></h1>
             <p class="hero-sub">Half runs on your Mac, half on a dedicated cloud machine that only you use. Available on macOS, Telegram, and WhatsApp. An AI assistant that actually knows you, without handing your personal data to a shared cloud.</p>
 
             <div class="app-tags">
@@ -654,9 +693,9 @@
             <p class="microcopy">We'll email you when it's your turn. No spam, ever.</p>
 
             <div class="trust-row">
-                <span class="trust-item"><span class="trust-dot green"></span> Your own dedicated machine</span>
-                <span class="trust-item"><span class="trust-dot blue"></span> Personal data stays on Mac</span>
-                <span class="trust-item"><span class="trust-dot orange"></span> Choose your own models</span>
+                <span class="trust-item reveal reveal-delay-1"><span class="trust-dot green"></span> Your own dedicated machine</span>
+                <span class="trust-item reveal reveal-delay-3"><span class="trust-dot blue"></span> Personal data stays on Mac</span>
+                <span class="trust-item reveal reveal-delay-5"><span class="trust-dot orange"></span> Choose your own models</span>
             </div>
 
             <div class="yc-badge">
@@ -671,43 +710,43 @@
 <section class="migration-section">
     <div class="container">
         <div class="migration-block">
-            <div class="section-header reveal">
-                <h2>Switching from OpenClaw?</h2>
-                <p>You loved building with OpenClaw. Now get the same power without the maintenance.</p>
+            <div class="section-header">
+                <h2 class="reveal">Switching from OpenClaw?</h2>
+                <p class="reveal reveal-delay-1">You loved building with OpenClaw. Now get the same power without the maintenance.</p>
             </div>
-            <div class="migration-grid reveal">
-                <div class="migration-item">
+            <div class="migration-grid">
+                <div class="migration-item reveal reveal-delay-1">
                     <span class="emoji">🌱</span>
                     <h3>Same open-source roots</h3>
                     <p>jo stands on the shoulders of the same open-source giants you trust. Battle-tested code, community we contribute back to.</p>
                 </div>
-                <div class="migration-item">
+                <div class="migration-item reveal reveal-delay-2">
                     <span class="emoji">🚫</span>
                     <h3>No terminal required</h3>
                     <p>No config files, no API key management, no Node.js. Sign up and go.</p>
                 </div>
-                <div class="migration-item">
+                <div class="migration-item reveal reveal-delay-3">
                     <span class="emoji">🖥</span>
                     <h3>Your own machine</h3>
                     <p>Not a shared server. Your storage, your compute, your data.</p>
                 </div>
-                <div class="migration-item">
+                <div class="migration-item reveal reveal-delay-4">
                     <span class="emoji">🤖</span>
                     <h3>Same model flexibility</h3>
                     <p>OpenAI, Anthropic, Grok, Kimi, plus local. Swap anytime.</p>
                 </div>
-                <div class="migration-item">
+                <div class="migration-item reveal reveal-delay-5">
                     <span class="emoji">🔒</span>
                     <h3>Privacy you can trust</h3>
                     <p>Personal data stays on your Mac. Cloud inference never touches your training data. Same promise, better UX.</p>
                 </div>
-                <div class="migration-item">
+                <div class="migration-item reveal reveal-delay-6">
                     <span class="emoji">✨</span>
                     <h3>Seamless migration</h3>
                     <p>Sign up, import your preferences, done. Your workflows carry over. The terminal doesn't.</p>
                 </div>
             </div>
-            <p class="migration-cta">Already an OpenClaw power user? <strong>You'll feel right at home.</strong></p>
+            <p class="migration-cta reveal reveal-delay-7">Already an OpenClaw power user? <strong>You'll feel right at home.</strong></p>
         </div>
     </div>
 </section>
@@ -715,10 +754,10 @@
 <!-- Demo section -->
 <section id="why-jo" class="section-alt">
     <div class="container">
-        <div class="section-header reveal">
-            <h2>It already knows the context.<br>Just ask.</h2>
+        <div class="section-header">
+            <h2 class="reveal">It already knows the context.<br>Just ask.</h2>
         </div>
-        <div class="demo-window reveal">
+        <div class="demo-window reveal reveal-delay-2">
             <div class="demo-bar">
                 <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
                 <span>jo</span><span class="demo-bar-spacer" aria-hidden="true"></span>
@@ -739,52 +778,52 @@
                 </div>
             </div>
         </div>
-        <p class="demo-caption">Every conversation, every channel, every app. jo remembers so you don't have to.</p>
+        <p class="demo-caption reveal reveal-delay-3">Every conversation, every channel, every app. jo remembers so you don't have to.</p>
     </div>
 </section>
 
 <!-- 10x faster everywhere: narrative feature cards -->
 <section>
     <div class="container">
-        <div class="section-header reveal">
-            <h2>10x faster everywhere</h2>
-            <p>Whether you're planning a trip, prepping for a meeting, or packing the car with your hands full.</p>
+        <div class="section-header">
+            <h2 class="reveal">10x faster everywhere</h2>
+            <p class="reveal reveal-delay-1">Whether you're planning a trip, prepping for a meeting, or packing the car with your hands full.</p>
         </div>
-        <div class="narrative-grid reveal">
-            <div class="narrative-card wide">
+        <div class="narrative-grid">
+            <div class="narrative-card wide reveal reveal-delay-1">
                 <span class="emoji">👁</span>
                 <h3>It notices things</h3>
                 <p class="scene">You've been browsing Yosemite trail guides, checking campsite availability, reading about kid-friendly hikes.</p>
                 <p>A local model on your Mac groups all of this into a clip: "Yosemite Weekend Trip." You never tagged anything or created a folder. Jo just noticed. Nothing leaves your machine. But when you ask a question, jo already has the context.</p>
             </div>
-            <div class="narrative-card">
+            <div class="narrative-card reveal reveal-delay-2">
                 <span class="emoji">🧠</span>
                 <h3>It knows you</h3>
                 <p>Jo knows your kids' ages, that you prefer tent camping over cabins, and that you always pack the car the night before. Plain text notes, daily logs, and decisions. Not a black box. Just files you can read and edit. A nightly reflection loop makes jo better at being your assistant without you doing anything.</p>
             </div>
-            <div class="narrative-card">
+            <div class="narrative-card reveal reveal-delay-3">
                 <span class="emoji">🎤</span>
                 <h3>Voice while you do other things</h3>
                 <p class="scene">You're packing the car and your hands are full.</p>
                 <p>"Hey Jo, what's the weather in Yosemite this weekend?" Voice transcription runs locally on your Mac. Echo cancellation means no headphones needed. You talk while you work. Jo responds.</p>
             </div>
-            <div class="narrative-card">
+            <div class="narrative-card reveal reveal-delay-2">
                 <span class="emoji">💬</span>
                 <h3>Always in your messengers</h3>
                 <p>On the road, text jo on Telegram to find a lunch stop. At the campsite, send a voice message on WhatsApp: "What time does the visitor center close?" Jo responds in audio. Your phone is always with you. So is jo.</p>
             </div>
-            <div class="narrative-card">
+            <div class="narrative-card reveal reveal-delay-3">
                 <span class="emoji">🔗</span>
                 <h3>Deep app integrations</h3>
                 <p>Jo checks your Google Calendar for conflicts, reads your Gmail for the reservation confirmation, and pulls up trail photos from your Photos library. Local: Safari, Chrome, Notes, Slack, Messages, Photos, Reminders, Finder. Remote: Google Calendar, Gmail, Google Drive. With your permission, jo reads actual content, not screenshots.</p>
             </div>
-            <div class="narrative-card">
+            <div class="narrative-card reveal reveal-delay-4">
                 <span class="emoji">⏰</span>
                 <h3>It works when you're not there</h3>
                 <p class="scene">The morning of your trip, jo sends a briefing.</p>
                 <p>Weather forecast, your check-in time pulled from Gmail, a reminder to pack the hiking boots, current road conditions. Set it up once: "Every Friday before a weekend trip, send me a prep briefing." It runs on your dedicated machine and delivers to whichever channel you're on.</p>
             </div>
-            <div class="narrative-card">
+            <div class="narrative-card reveal reveal-delay-5">
                 <span class="emoji">🔄</span>
                 <h3>Same jo everywhere</h3>
                 <p>Voice on your Mac at home. Telegram in the car. WhatsApp at the campsite. Same memory, same personality, same context. One conversation that flows across every channel.</p>
@@ -796,32 +835,32 @@
 <!-- Raw power section -->
 <section class="section-cream">
     <div class="container">
-        <div class="section-header reveal">
-            <h2>Raw power, but fast</h2>
-            <p>Quick questions come back in 1-2 seconds. Complex research auto-routes to a reasoning model. You don't choose. Jo does.</p>
+        <div class="section-header">
+            <h2 class="reveal">Raw power, but fast</h2>
+            <p class="reveal reveal-delay-1">Quick questions come back in 1-2 seconds. Complex research auto-routes to a reasoning model. You don't choose. Jo does.</p>
         </div>
-        <div class="cmp-grid reveal">
-            <div class="cmp-card featured">
+        <div class="cmp-grid">
+            <div class="cmp-card featured reveal reveal-delay-1">
                 <span class="cmp-tag">Intelligence</span>
                 <h3>Two tiers, not one</h3>
                 <p>"What time is check-in?" comes back instantly. "Research the best kid-friendly trails in Yosemite Valley, compare distances and elevation, and build us a two-day itinerary" routes to a reasoning model automatically.</p>
             </div>
-            <div class="cmp-card">
+            <div class="cmp-card reveal reveal-delay-2">
                 <span class="cmp-tag">Models</span>
                 <h3>You pick the models</h3>
                 <p>OpenAI, Anthropic, Grok, Kimi. More coming. Jo also ships with a local model that runs entirely on your Mac. Swap anytime.</p>
             </div>
-            <div class="cmp-card">
+            <div class="cmp-card reveal reveal-delay-3">
                 <span class="cmp-tag">Browsing</span>
                 <h3>Real browser, not a simulation</h3>
                 <p>Jo controls a real browser on a separate machine. It checks campsite availability on recreation.gov, reads trail conditions on NPS.gov, finds gas stations along your route. Sites see a normal user, not a bot.</p>
             </div>
-            <div class="cmp-card">
+            <div class="cmp-card reveal reveal-delay-4">
                 <span class="cmp-tag">Search</span>
                 <h3>vs. Spotlight</h3>
                 <p>Spotlight matches exact words. Jo understands meaning. Ask for "that email about money problems" and it finds your budget discussions.</p>
             </div>
-            <div class="cmp-card">
+            <div class="cmp-card reveal reveal-delay-5">
                 <span class="cmp-tag">Privacy</span>
                 <h3>vs. ChatGPT</h3>
                 <p>ChatGPT requires uploading files to external servers. Jo already knows your stuff because it lives on your machine, not theirs.</p>
@@ -832,21 +871,21 @@
 
 <section id="how-it-works">
     <div class="container">
-        <div class="section-header reveal">
-            <h2>Up and running in minutes</h2>
+        <div class="section-header">
+            <h2 class="reveal">Up and running in minutes</h2>
         </div>
-        <div class="steps reveal">
-            <div class="step">
+        <div class="steps">
+            <div class="step reveal reveal-delay-1">
                 <div class="step-circle">1</div>
                 <h3>Sign up</h3>
                 <p>Create your account. Your machine spins up automatically. No terminal, no config files.</p>
             </div>
-            <div class="step">
+            <div class="step reveal reveal-delay-3">
                 <div class="step-circle">2</div>
                 <h3>Connect your apps</h3>
                 <p>Grant permissions to the apps you use. Jo indexes your Notes, Photos, Mail, Calendar, and Messages.</p>
             </div>
-            <div class="step">
+            <div class="step reveal reveal-delay-5">
                 <div class="step-circle">3</div>
                 <h3>Ask anything, anywhere</h3>
                 <p>Mac, Telegram, WhatsApp, voice. One conversation across every channel.</p>
@@ -857,27 +896,27 @@
 
 <section id="features" class="section-alt">
     <div class="container">
-        <div class="section-header reveal">
-            <h2>Built for daily life</h2>
-            <p>Not a developer tool. Not a chatbot. An assistant that actually helps.</p>
+        <div class="section-header">
+            <h2 class="reveal">Built for daily life</h2>
+            <p class="reveal reveal-delay-1">Not a developer tool. Not a chatbot. An assistant that actually helps.</p>
         </div>
-        <div class="feat-grid reveal">
-            <div class="feat-card hero-feat">
+        <div class="feat-grid">
+            <div class="feat-card hero-feat reveal reveal-delay-1">
                 <span class="emoji">📅</span>
                 <h3>"Prep me for my 2pm with Sarah Chen"</h3>
                 <p>Jo checks your calendar, finds your last 5 email threads with Sarah, pulls up notes from previous meetings, and reminds you she mentioned her daughter's graduation.</p>
             </div>
-            <div class="feat-card">
+            <div class="feat-card reveal reveal-delay-2">
                 <span class="emoji">🍣</span>
                 <h3>"What was that amazing tempura place in Tokyo?"</h3>
                 <p>Jo finds your reservation email from 2022, pulls up the photos, and shows the note where you wrote "best meal of the trip."</p>
             </div>
-            <div class="feat-card">
+            <div class="feat-card reveal reveal-delay-3">
                 <span class="emoji">🏠</span>
                 <h3>"What did we decide about the kitchen remodel?"</h3>
                 <p>Jo pulls together the contractor's quote from email, your photos, and the start date from Calendar.</p>
             </div>
-            <div class="feat-card">
+            <div class="feat-card reveal reveal-delay-4">
                 <span class="emoji">💬</span>
                 <h3>"Catch me up on the family groupchat"</h3>
                 <p>Jo reads the last 100 messages in your iMessage, WhatsApp, or Telegram groups and gives you the highlights.</p>
@@ -889,11 +928,11 @@
 
 <section id="testimonials">
     <div class="container">
-        <div class="section-header reveal">
-            <h2>What early testers say</h2>
+        <div class="section-header">
+            <h2 class="reveal">What early testers say</h2>
         </div>
-        <div class="test-grid reveal">
-            <div class="test-card">
+        <div class="test-grid">
+            <div class="test-card reveal reveal-delay-1">
                 <div class="stars">★★★★★</div>
                 <blockquote>"Had a call with a client I hadn't talked to in 6 months. jo surfaced my notes from our last conversation before I even asked."</blockquote>
                 <div class="test-author">
@@ -901,7 +940,7 @@
                     <div><strong>Beta tester</strong><span>Consultant</span></div>
                 </div>
             </div>
-            <div class="test-card">
+            <div class="test-card reveal reveal-delay-3">
                 <div class="stars">★★★★★</div>
                 <blockquote>"4,000+ notes in Apple Notes over 8 years. Never looked at most of them. Now jo brings up relevant ones while I'm working."</blockquote>
                 <div class="test-author">
@@ -909,7 +948,7 @@
                     <div><strong>Beta tester</strong><span>Freelance Writer</span></div>
                 </div>
             </div>
-            <div class="test-card">
+            <div class="test-card reveal reveal-delay-5">
                 <div class="stars">★★★★★</div>
                 <blockquote>"Asked jo for 'that photo with the blue door from Portugal' from 2019. Found it in 3 seconds. 47,000 photos."</blockquote>
                 <div class="test-author">
@@ -924,37 +963,37 @@
 <!-- Sovereignty section -->
 <section id="sovereignty" class="section-dark">
     <div class="container">
-        <div class="section-header reveal">
-            <h2>Your machine. Your data.<br>Not a row in someone else's database.</h2>
-            <p>Not a row in someone else's database. Real compute, real storage, only you.</p>
+        <div class="section-header">
+            <h2 class="reveal">Your machine. Your data.<br>Not a row in someone else's database.</h2>
+            <p class="reveal reveal-delay-1">Not a row in someone else's database. Real compute, real storage, only you.</p>
         </div>
-        <div class="sovereignty-grid reveal">
-            <div class="sovereignty-card">
+        <div class="sovereignty-grid">
+            <div class="sovereignty-card reveal reveal-delay-1">
                 <span class="emoji">🖥</span>
                 <h3>Dedicated cloud machine</h3>
                 <p>A real machine that only you use. Your storage, your compute, your data.</p>
             </div>
-            <div class="sovereignty-card">
+            <div class="sovereignty-card reveal reveal-delay-2">
                 <span class="emoji">📂</span>
                 <h3>Mounts as a drive on your Mac</h3>
                 <p>Your cloud storage shows up in Finder. Trip notes, packing lists, conversation history. Regular files in a regular folder.</p>
             </div>
-            <div class="sovereignty-card">
+            <div class="sovereignty-card reveal reveal-delay-3">
                 <span class="emoji">🔒</span>
                 <h3>Personal data stays local</h3>
                 <p>Photos, school schedules, screen content. All processed on your Mac. No network calls.</p>
             </div>
-            <div class="sovereignty-card">
+            <div class="sovereignty-card reveal reveal-delay-4">
                 <span class="emoji">🛡</span>
                 <h3>Inference you can trust</h3>
                 <p>Cloud inference runs on providers with contracts that prevent training on your data. You can run fully local if you want.</p>
             </div>
-            <div class="sovereignty-card">
+            <div class="sovereignty-card reveal reveal-delay-5">
                 <span class="emoji">🌱</span>
                 <h3>Built on open roots</h3>
                 <p>Battle-tested open-source code. Part of a community we contribute back to.</p>
             </div>
-            <div class="sovereignty-card">
+            <div class="sovereignty-card reveal reveal-delay-6">
                 <span class="emoji">🔍</span>
                 <h3>Audit us</h3>
                 <p>Seriously. Check Activity Monitor. Read the privacy docs. Email <a href="mailto:security@askjo.ai" style="color: var(--orange-light);">security@askjo.ai</a>. We welcome scrutiny.</p>
@@ -965,11 +1004,11 @@
 
 <section class="section-dark" style="padding-top: 0;">
     <div class="container">
-        <div class="section-header reveal">
-            <h2>Built by founders who care about privacy</h2>
+        <div class="section-header">
+            <h2 class="reveal">Built by founders who care about privacy</h2>
         </div>
-        <div class="team-row reveal">
-            <div class="team-card">
+        <div class="team-row">
+            <div class="team-card reveal reveal-delay-1">
                 <img src="pradeep.jpeg" alt="Pradeep Elankumaran, co-founder of jo" width="56" height="56" loading="lazy">
                 <div>
                     <strong>Pradeep Elankumaran</strong>
@@ -977,7 +1016,7 @@
                     <div class="prev">Yahoo, Lyft, YC S11/S16/W24</div>
                 </div>
             </div>
-            <div class="team-card">
+            <div class="team-card reveal reveal-delay-3">
                 <img src="kevin.jpeg" alt="Kevin Li, co-founder of jo" width="56" height="56" loading="lazy">
                 <div>
                     <strong>Kevin Li</strong>
@@ -986,16 +1025,16 @@
                 </div>
             </div>
         </div>
-        <p class="team-text">Cofounders for a decade. Consumer founders since the mid-2000s.<br>Questions? <a href="mailto:founders@askjo.ai">founders@askjo.ai</a></p>
+        <p class="team-text reveal reveal-delay-4">Cofounders for a decade. Consumer founders since the mid-2000s.<br>Questions? <a href="mailto:founders@askjo.ai">founders@askjo.ai</a></p>
     </div>
 </section>
 
 <section id="pricing" class="section-alt">
     <div class="container">
-        <div class="section-header reveal">
-            <h2>Pay as you go.<br>No subscription.</h2>
+        <div class="section-header">
+            <h2 class="reveal">Pay as you go.<br>No subscription.</h2>
         </div>
-        <div class="pricing-card reveal">
+        <div class="pricing-card reveal reveal-delay-2">
             <div class="ribbon">Simple Pricing</div>
             <div class="price-big">$5-10<span>/mo</span></div>
             <p>Pay per question. A few cents each. No subscription, no commitment, cancel anytime.</p>
@@ -1010,32 +1049,32 @@
 
 <section id="faq">
     <div class="container">
-        <div class="section-header reveal">
-            <h2>FAQ</h2>
+        <div class="section-header">
+            <h2 class="reveal">FAQ</h2>
         </div>
-        <div class="faq-grid reveal">
-            <div class="faq-item"><h3>What is jo?</h3><p>An AI assistant that runs half on your Mac, half on your own dedicated cloud machine. It searches your notes, photos, emails, messages, and files. Available on macOS, Telegram, and WhatsApp.</p></div>
-            <div class="faq-item"><h3>Does my data leave my Mac?</h3><p>Personal data (photos, screen content, local files) never leaves your Mac. Conversations and tasks run on your dedicated cloud machine. Cloud inference uses providers that never train on your data.</p></div>
-            <div class="faq-item"><h3>What's a "dedicated machine"?</h3><p>Every jo user gets their own cloud server. A real machine with its own storage accessible from your Mac.</p></div>
-            <div class="faq-item"><h3>How does pricing work?</h3><p>No subscription. Simple queries cost about 1 cent. Complex queries about 5 cents. Most users spend $5-10 per month. First month is free.</p></div>
-            <div class="faq-item"><h3>Which models can I use?</h3><p>OpenAI, Anthropic, Grok, Kimi, and a local model that runs entirely on your Mac. Swap anytime. Jo auto-routes between fast and reasoning models based on the question.</p></div>
-            <div class="faq-item"><h3>How is jo different from ChatGPT?</h3><p>ChatGPT lives on someone else's server and doesn't know you. Jo has your context (email, calendar, files, conversations) and runs on your own machine.</p></div>
-            <div class="faq-item"><h3>Can I use jo on my phone?</h3><p>Yes, through Telegram and WhatsApp. Text or voice. Same memory, same context as the Mac app. Native mobile app is coming soon.</p></div>
-            <div class="faq-item"><h3>Which Mac?</h3><p>Any M-series chip (M1 through M4) with 16GB RAM. Most Macs from 2020 onwards.</p></div>
+        <div class="faq-grid">
+            <div class="faq-item reveal reveal-delay-1"><h3>What is jo?</h3><p>An AI assistant that runs half on your Mac, half on your own dedicated cloud machine. It searches your notes, photos, emails, messages, and files. Available on macOS, Telegram, and WhatsApp.</p></div>
+            <div class="faq-item reveal reveal-delay-2"><h3>Does my data leave my Mac?</h3><p>Personal data (photos, screen content, local files) never leaves your Mac. Conversations and tasks run on your dedicated cloud machine. Cloud inference uses providers that never train on your data.</p></div>
+            <div class="faq-item reveal reveal-delay-3"><h3>What's a "dedicated machine"?</h3><p>Every jo user gets their own cloud server. A real machine with its own storage accessible from your Mac.</p></div>
+            <div class="faq-item reveal reveal-delay-4"><h3>How does pricing work?</h3><p>No subscription. Simple queries cost about 1 cent. Complex queries about 5 cents. Most users spend $5-10 per month. First month is free.</p></div>
+            <div class="faq-item reveal reveal-delay-5"><h3>Which models can I use?</h3><p>OpenAI, Anthropic, Grok, Kimi, and a local model that runs entirely on your Mac. Swap anytime. Jo auto-routes between fast and reasoning models based on the question.</p></div>
+            <div class="faq-item reveal reveal-delay-6"><h3>How is jo different from ChatGPT?</h3><p>ChatGPT lives on someone else's server and doesn't know you. Jo has your context (email, calendar, files, conversations) and runs on your own machine.</p></div>
+            <div class="faq-item reveal reveal-delay-7"><h3>Can I use jo on my phone?</h3><p>Yes, through Telegram and WhatsApp. Text or voice. Same memory, same context as the Mac app. Native mobile app is coming soon.</p></div>
+            <div class="faq-item reveal reveal-delay-8"><h3>Which Mac?</h3><p>Any M-series chip (M1 through M4) with 16GB RAM. Most Macs from 2020 onwards.</p></div>
         </div>
     </div>
 </section>
 
 <section id="download" class="final-cta">
     <div class="container">
-        <h2>10x faster starts now.</h2>
-        <p>Your AI. Your machine. Free for 30 days.</p>
-        <form class="email-form" onsubmit="window.open('https://askjo.fillout.com/beta-waitlist?email='+encodeURIComponent(document.getElementById('download-email').value),'_blank');return false;" autocomplete="off">
+        <h2 class="reveal">10x faster starts now.</h2>
+        <p class="reveal reveal-delay-1">Your AI. Your machine. Free for 30 days.</p>
+        <form class="email-form reveal reveal-delay-2" onsubmit="window.open('https://askjo.fillout.com/beta-waitlist?email='+encodeURIComponent(document.getElementById('download-email').value),'_blank');return false;" autocomplete="off">
             <label class="sr-only" for="download-email">Email address</label>
             <input id="download-email" type="email" name="email" inputmode="email" autocomplete="email" class="email-input" placeholder="you@example.com" required>
             <button type="submit" class="btn-bold">Get Beta Access →</button>
         </form>
-        <p class="microcopy">Free for 30 days · No credit card · macOS, Telegram, WhatsApp</p>
+        <p class="microcopy reveal reveal-delay-3">Free for 30 days · No credit card · macOS, Telegram, WhatsApp</p>
     </div>
 </section>
 </main>
@@ -1217,17 +1256,66 @@
 <script>
     // Scroll-triggered reveal animations
     (function() {
-        const observer = new IntersectionObserver(function(entries) {
+        // Batch visibility changes per frame for performance
+        var pending = [];
+        var rafScheduled = false;
+
+        function flush() {
+            pending.forEach(function(el) { el.classList.add('visible'); });
+            pending = [];
+            rafScheduled = false;
+        }
+
+        var observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    pending.push(entry.target);
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            if (pending.length && !rafScheduled) {
+                rafScheduled = true;
+                requestAnimationFrame(flush);
+            }
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
         document.querySelectorAll('.reveal').forEach(function(el) {
             observer.observe(el);
+        });
+
+        // Word-by-word reveal: wrap each word in a span with staggered delay
+        document.querySelectorAll('.word-reveal').forEach(function(el) {
+            var text = el.textContent.trim();
+            var words = text.split(/\s+/);
+            el.textContent = '';
+            words.forEach(function(word, i) {
+                var span = document.createElement('span');
+                span.className = 'word';
+                span.style.transitionDelay = (i * 0.04) + 's';
+                span.textContent = word;
+                el.appendChild(span);
+            });
+            observer.observe(el);
+        });
+
+        // Typewriter: trigger on visibility, hide caret after animation
+        document.querySelectorAll('.typewriter').forEach(function(el) {
+            var len = el.textContent.length;
+            var duration = Math.min(2.2, Math.max(0.8, len * 0.04));
+            el.style.animationDuration = duration + 's, 0.6s';
+            el.style.animationPlayState = 'paused, paused';
+            observer.observe(el);
+            // When visible, play animation
+            var mo = new MutationObserver(function(muts) {
+                muts.forEach(function(m) {
+                    if (el.classList.contains('visible')) {
+                        el.style.animationPlayState = 'running, running';
+                        setTimeout(function() { el.classList.add('caret-done'); }, (duration + 1.8) * 1000);
+                        mo.disconnect();
+                    }
+                });
+            });
+            mo.observe(el, { attributes: true, attributeFilter: ['class'] });
         });
     })();
 </script>
