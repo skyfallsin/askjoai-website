@@ -26,6 +26,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -260,7 +261,11 @@
             grid-column: 1 / -1; border-color: #00D4FF; border-width: 4px;
             background: linear-gradient(135deg, rgba(0,212,255,0.06), var(--bg-white));
         }
-        .feat-card .emoji { font-size: 32px; margin-bottom: 12px; display: block; }
+
+        .icon { display: block; margin-bottom: 12px; color: #00D4FF; }
+        .icon svg { width: 28px; height: 28px; }
+        .narrative-card .icon svg, .feat-card .icon svg { width: 32px; height: 32px; }
+        .sovereignty-card .icon { color: #00D4FF; }
         .feat-card h3 { font-family: var(--font-display); font-size: 17px; font-weight: 800; margin-bottom: 8px; }
         .feat-card.hero-feat h3 { font-size: 21px; }
         .feat-card p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
@@ -411,7 +416,7 @@
             border-radius: 16px; padding: 24px; transition: all 0.2s;
         }
         .migration-item:hover { border-color: #00D4FF; transform: translateY(-2px); }
-        .migration-item .emoji { font-size: 24px; margin-bottom: 8px; display: block; }
+
         .migration-item h3 { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
         .migration-item p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
         .migration-cta { text-align: center; font-size: 16px; color: var(--text-dim); font-weight: 500; }
@@ -428,7 +433,7 @@
         }
         .narrative-card:hover { transform: translateY(-4px); border-color: var(--electric-blue); }
         .narrative-card.wide { grid-column: 1 / -1; }
-        .narrative-card .emoji { font-size: 32px; margin-bottom: 12px; display: block; }
+
         .narrative-card h3 { font-family: var(--font-display); font-size: 20px; font-weight: 800; margin-bottom: 8px; }
         .narrative-card p { font-size: 15px; color: var(--text-dim); line-height: 1.7; }
         .narrative-card .scene { font-size: 14px; color: var(--text-muted); font-style: italic; margin-bottom: 12px; }
@@ -443,7 +448,7 @@
             border-radius: var(--radius); padding: 28px; transition: all 0.2s;
         }
         .sovereignty-card:hover { border-color: var(--orange-light); transform: translateY(-2px); }
-        .sovereignty-card .emoji { font-size: 28px; margin-bottom: 12px; display: block; }
+
         .sovereignty-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; color: #fff; }
         .sovereignty-card p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; }
 
@@ -701,32 +706,32 @@
             </div>
             <div class="migration-grid">
                 <div class="migration-item reveal reveal-delay-1">
-                    <span class="emoji">🌱</span>
+                    <span class="icon"><i data-lucide="sprout"></i></span>
                     <h3>Same open-source roots</h3>
                     <p>jo stands on the shoulders of the same open-source giants you trust. Battle-tested code, community we contribute back to.</p>
                 </div>
                 <div class="migration-item reveal reveal-delay-2">
-                    <span class="emoji">🚫</span>
+                    <span class="icon"><i data-lucide="terminal"></i></span>
                     <h3>No terminal required</h3>
                     <p>No config files, no API key management, no Node.js. Sign up and go.</p>
                 </div>
                 <div class="migration-item reveal reveal-delay-3">
-                    <span class="emoji">🖥</span>
+                    <span class="icon"><i data-lucide="monitor"></i></span>
                     <h3>Your own machine</h3>
                     <p>Not a shared server. Your storage, your compute, your data.</p>
                 </div>
                 <div class="migration-item reveal reveal-delay-4">
-                    <span class="emoji">🤖</span>
+                    <span class="icon"><i data-lucide="cpu"></i></span>
                     <h3>Same model flexibility</h3>
                     <p>OpenAI, Anthropic, Grok, Kimi, plus local. Swap anytime.</p>
                 </div>
                 <div class="migration-item reveal reveal-delay-5">
-                    <span class="emoji">🔒</span>
+                    <span class="icon"><i data-lucide="lock"></i></span>
                     <h3>Privacy you can trust</h3>
                     <p>Personal data stays on your Mac. Cloud inference never touches your training data. Same promise, better UX.</p>
                 </div>
                 <div class="migration-item reveal reveal-delay-6">
-                    <span class="emoji">✨</span>
+                    <span class="icon"><i data-lucide="arrow-right-circle"></i></span>
                     <h3>Seamless migration</h3>
                     <p>Sign up, import your preferences, done. Your workflows carry over. The terminal doesn't.</p>
                 </div>
@@ -776,40 +781,40 @@
         </div>
         <div class="narrative-grid">
             <div class="narrative-card wide reveal reveal-delay-1">
-                <span class="emoji">👁</span>
+                <span class="icon"><i data-lucide="eye"></i></span>
                 <h3>It notices things</h3>
                 <p class="scene">You've been browsing Yosemite trail guides, checking campsite availability, reading about kid-friendly hikes.</p>
                 <p>A local model on your Mac groups all of this into a clip: "Yosemite Weekend Trip." You never tagged anything or created a folder. Jo just noticed. Nothing leaves your machine. But when you ask a question, jo already has the context.</p>
             </div>
             <div class="narrative-card reveal reveal-delay-2">
-                <span class="emoji">🧠</span>
+                <span class="icon"><i data-lucide="brain"></i></span>
                 <h3>It knows you</h3>
                 <p>Jo knows your kids' ages, that you prefer tent camping over cabins, and that you always pack the car the night before. Plain text notes, daily logs, and decisions. Not a black box. Just files you can read and edit. A nightly reflection loop makes jo better at being your assistant without you doing anything.</p>
             </div>
             <div class="narrative-card reveal reveal-delay-3">
-                <span class="emoji">🎤</span>
+                <span class="icon"><i data-lucide="mic"></i></span>
                 <h3>Voice while you do other things</h3>
                 <p class="scene">You're packing the car and your hands are full.</p>
                 <p>"Hey Jo, what's the weather in Yosemite this weekend?" Voice transcription runs locally on your Mac. Echo cancellation means no headphones needed. You talk while you work. Jo responds.</p>
             </div>
             <div class="narrative-card reveal reveal-delay-2">
-                <span class="emoji">💬</span>
+                <span class="icon"><i data-lucide="message-circle"></i></span>
                 <h3>Always in your messengers</h3>
                 <p>On the road, text jo on Telegram to find a lunch stop. At the campsite, send a voice message on WhatsApp: "What time does the visitor center close?" Jo responds in audio. Your phone is always with you. So is jo.</p>
             </div>
             <div class="narrative-card reveal reveal-delay-3">
-                <span class="emoji">🔗</span>
+                <span class="icon"><i data-lucide="link"></i></span>
                 <h3>Deep app integrations</h3>
                 <p>Jo checks your Google Calendar for conflicts, reads your Gmail for the reservation confirmation, and pulls up trail photos from your Photos library. Local: Safari, Chrome, Notes, Slack, Messages, Photos, Reminders, Finder. Remote: Google Calendar, Gmail, Google Drive. With your permission, jo reads actual content, not screenshots.</p>
             </div>
             <div class="narrative-card reveal reveal-delay-4">
-                <span class="emoji">⏰</span>
+                <span class="icon"><i data-lucide="clock"></i></span>
                 <h3>It works when you're not there</h3>
                 <p class="scene">The morning of your trip, jo sends a briefing.</p>
                 <p>Weather forecast, your check-in time pulled from Gmail, a reminder to pack the hiking boots, current road conditions. Set it up once: "Every Friday before a weekend trip, send me a prep briefing." It runs on your dedicated machine and delivers to whichever channel you're on.</p>
             </div>
             <div class="narrative-card reveal reveal-delay-5">
-                <span class="emoji">🔄</span>
+                <span class="icon"><i data-lucide="refresh-cw"></i></span>
                 <h3>Same jo everywhere</h3>
                 <p>Voice on your Mac at home. Telegram in the car. WhatsApp at the campsite. Same memory, same personality, same context. One conversation that flows across every channel.</p>
             </div>
@@ -887,22 +892,22 @@
         </div>
         <div class="feat-grid">
             <div class="feat-card hero-feat reveal reveal-delay-1">
-                <span class="emoji">📅</span>
+                <span class="icon"><i data-lucide="calendar"></i></span>
                 <h3>"Prep me for my 2pm with Sarah Chen"</h3>
                 <p>Jo checks your calendar, finds your last 5 email threads with Sarah, pulls up notes from previous meetings, and reminds you she mentioned her daughter's graduation.</p>
             </div>
             <div class="feat-card reveal reveal-delay-2">
-                <span class="emoji">🍣</span>
+                <span class="icon"><i data-lucide="map-pin"></i></span>
                 <h3>"What was that amazing tempura place in Tokyo?"</h3>
                 <p>Jo finds your reservation email from 2022, pulls up the photos, and shows the note where you wrote "best meal of the trip."</p>
             </div>
             <div class="feat-card reveal reveal-delay-3">
-                <span class="emoji">🏠</span>
+                <span class="icon"><i data-lucide="home"></i></span>
                 <h3>"What did we decide about the kitchen remodel?"</h3>
                 <p>Jo pulls together the contractor's quote from email, your photos, and the start date from Calendar.</p>
             </div>
             <div class="feat-card reveal reveal-delay-4">
-                <span class="emoji">💬</span>
+                <span class="icon"><i data-lucide="messages-square"></i></span>
                 <h3>"Catch me up on the family groupchat"</h3>
                 <p>Jo reads the last 100 messages in your iMessage, WhatsApp, or Telegram groups and gives you the highlights.</p>
             </div>
@@ -954,32 +959,32 @@
         </div>
         <div class="sovereignty-grid">
             <div class="sovereignty-card reveal reveal-delay-1">
-                <span class="emoji">🖥</span>
+                <span class="icon"><i data-lucide="server"></i></span>
                 <h3>Dedicated cloud machine</h3>
                 <p>A real machine that only you use. Your storage, your compute, your data.</p>
             </div>
             <div class="sovereignty-card reveal reveal-delay-2">
-                <span class="emoji">📂</span>
+                <span class="icon"><i data-lucide="hard-drive"></i></span>
                 <h3>Mounts as a drive on your Mac</h3>
                 <p>Your cloud storage shows up in Finder. Trip notes, packing lists, conversation history. Regular files in a regular folder.</p>
             </div>
             <div class="sovereignty-card reveal reveal-delay-3">
-                <span class="emoji">🔒</span>
+                <span class="icon"><i data-lucide="shield"></i></span>
                 <h3>Personal data stays local</h3>
                 <p>Photos, school schedules, screen content. All processed on your Mac. No network calls.</p>
             </div>
             <div class="sovereignty-card reveal reveal-delay-4">
-                <span class="emoji">🛡</span>
+                <span class="icon"><i data-lucide="shield-check"></i></span>
                 <h3>Inference you can trust</h3>
                 <p>Cloud inference runs on providers with contracts that prevent training on your data. You can run fully local if you want.</p>
             </div>
             <div class="sovereignty-card reveal reveal-delay-5">
-                <span class="emoji">🌱</span>
+                <span class="icon"><i data-lucide="git-branch"></i></span>
                 <h3>Built on open roots</h3>
                 <p>Battle-tested open-source code. Part of a community we contribute back to.</p>
             </div>
             <div class="sovereignty-card reveal reveal-delay-6">
-                <span class="emoji">🔍</span>
+                <span class="icon"><i data-lucide="search"></i></span>
                 <h3>Audit us</h3>
                 <p>Seriously. Check Activity Monitor. Read the privacy docs. Email <a href="mailto:security@askjo.ai" style="color: var(--orange-light);">security@askjo.ai</a>. We welcome scrutiny.</p>
             </div>
@@ -1239,6 +1244,9 @@
 }
 </script>
 <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
     // Scroll-triggered reveal animations
     (function() {
         // Batch visibility changes per frame for performance
