@@ -513,27 +513,14 @@
         .reveal-delay-7 { transition-delay: 0.56s; }
         .reveal-delay-8 { transition-delay: 0.64s; }
 
-        /* Typewriter effect for key headlines */
-        .typewriter {
-            overflow: hidden;
-            border-right: 3px solid var(--orange);
-            white-space: nowrap;
-            width: 0;
-            display: inline-block;
-            animation: typewrite 1.8s steps(30, end) forwards, blinkCaret 0.6s step-end 4;
+        /* Text unveil effect for key headlines */
+        .text-unveil {
+            clip-path: inset(0 100% 0 0);
+            transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .typewriter.visible {
-            width: auto;
+        .text-unveil.visible {
+            clip-path: inset(0 0% 0 0);
         }
-        @keyframes typewrite {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-        @keyframes blinkCaret {
-            50% { border-color: transparent; }
-        }
-        /* After typing finishes, hide caret */
-        .typewriter.caret-done { border-right-color: transparent; }
 
         /* Word-by-word reveal for select paragraphs */
         .word-reveal .word {
@@ -671,7 +658,7 @@
     <div class="container">
         <div class="hero-content">
             <div class="hero-badge">● Now in Beta</div>
-            <h1>Your AI. Your machine.<br><span class="color-block typewriter">10x faster.</span></h1>
+            <h1>Your AI. Your machine.<br><span class="color-block text-unveil">10x faster.</span></h1>
             <p class="hero-sub">Half runs on your Mac, half on a dedicated cloud machine that only you use. Available on macOS, Telegram, and WhatsApp. An AI assistant that actually knows you, without handing your personal data to a shared cloud.</p>
 
             <div class="app-tags">
@@ -1298,24 +1285,9 @@
             observer.observe(el);
         });
 
-        // Typewriter: trigger on visibility, hide caret after animation
-        document.querySelectorAll('.typewriter').forEach(function(el) {
-            var len = el.textContent.length;
-            var duration = Math.min(2.2, Math.max(0.8, len * 0.04));
-            el.style.animationDuration = duration + 's, 0.6s';
-            el.style.animationPlayState = 'paused, paused';
+        // Text unveil elements use the same observer
+        document.querySelectorAll('.text-unveil').forEach(function(el) {
             observer.observe(el);
-            // When visible, play animation
-            var mo = new MutationObserver(function(muts) {
-                muts.forEach(function(m) {
-                    if (el.classList.contains('visible')) {
-                        el.style.animationPlayState = 'running, running';
-                        setTimeout(function() { el.classList.add('caret-done'); }, (duration + 1.8) * 1000);
-                        mo.disconnect();
-                    }
-                });
-            });
-            mo.observe(el, { attributes: true, attributeFilter: ['class'] });
         });
     })();
 </script>
