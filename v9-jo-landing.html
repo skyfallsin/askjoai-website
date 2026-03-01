@@ -516,10 +516,10 @@
         /* Text unveil effect for key headlines */
         .text-unveil {
             clip-path: inset(0 100% 0 0);
-            transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .text-unveil.visible {
             clip-path: inset(0 0% 0 0);
+            transition: clip-path 1.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         /* Word-by-word reveal for select paragraphs */
@@ -1283,9 +1283,9 @@
             observer.observe(el);
         });
 
-        // Text unveil elements use the same observer
+        // Text unveil fires on a timed delay (hero is above fold, observer unreliable for opacity:0 parents)
         document.querySelectorAll('.text-unveil').forEach(function(el) {
-            observer.observe(el);
+            setTimeout(function() { el.classList.add('visible'); }, 1200);
         });
     })();
 </script>
