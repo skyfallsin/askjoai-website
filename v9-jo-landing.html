@@ -467,6 +467,131 @@
             h1 { font-size: clamp(36px, 10vw, 60px); }
         }
 
+        /* ── ANIMATIONS ── */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(0,212,255,0.15), 0 0 60px rgba(255,45,120,0.08); }
+            50% { box-shadow: 0 0 50px rgba(0,212,255,0.25), 0 0 100px rgba(255,45,120,0.15); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Scroll-triggered reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* Hero image glow */
+        .hero-image-wrap {
+            animation: glowPulse 4s ease-in-out infinite;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .hero-image-wrap img {
+            animation: fadeInScale 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        /* Hero text entrance */
+        .hero-content { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both; }
+        .hero-badge { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both; }
+
+        /* Shimmer on h1 color-block */
+        h1 .color-block {
+            background: linear-gradient(90deg, #00D4FF, #FF2D78, #FF6B35, #00D4FF);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 6s ease-in-out infinite;
+        }
+        h1 .color-block::after { display: none; }
+
+        /* App tags stagger */
+        .app-tag {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .app-tag:hover {
+            transform: translateY(-4px) scale(1.05);
+        }
+
+        /* Step circles float */
+        .step-circle { animation: float 3s ease-in-out infinite; }
+        .step:nth-child(2) .step-circle { animation-delay: 0.5s; }
+        .step:nth-child(3) .step-circle { animation-delay: 1s; }
+
+        /* Cards lift on hover */
+        .feat-card, .cmp-card, .test-card, .narrative-card, .sovereignty-card, .faq-item, .migration-item {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Demo window subtle glow */
+        .demo-window {
+            transition: box-shadow 0.4s ease;
+        }
+        .demo-window:hover {
+            box-shadow: 0 20px 80px rgba(0,212,255,0.12), 0 0 40px rgba(255,45,120,0.06);
+        }
+
+        /* CTA button pulse */
+        .final-cta .btn-bold {
+            animation: glowPulse 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        .final-cta .btn-bold:hover {
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        /* Trust dots pulse */
+        .trust-dot { animation: glowPulse 2s ease-in-out infinite; }
+        .trust-dot.blue { animation-delay: 0.3s; }
+        .trust-dot.orange { animation-delay: 0.6s; }
+
+        /* Pricing card shimmer border */
+        .pricing-card {
+            transition: all 0.4s ease;
+        }
+        .pricing-card:hover {
+            border-color: rgba(0,212,255,0.5);
+            box-shadow: 0 20px 60px rgba(0,212,255,0.1), 0 0 40px rgba(155,48,255,0.08);
+        }
+
+        /* YC badge subtle glow */
+        .yc-badge {
+            transition: all 0.3s ease;
+        }
+        .yc-badge:hover {
+            box-shadow: 0 4px 20px rgba(255,102,0,0.2);
+            transform: translateY(-2px);
+        }
+
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation: none !important; transition: none !important; }
         }
@@ -500,7 +625,7 @@
 <main>
 <section class="hero" style="flex-direction: column; min-height: auto; padding-top: 56px;">
     <div class="container" style="width: 100%; max-width: 100%; padding: 0;">
-        <div style="width: 100%; margin-bottom: 60px;">
+        <div class="hero-image-wrap" style="width: 100%; margin-bottom: 60px;">
             <img src="jo-1-0-landscape.png" alt="jo 1.0" style="width: 100%; height: auto; display: block;">
         </div>
     </div>
@@ -546,11 +671,11 @@
 <section class="migration-section">
     <div class="container">
         <div class="migration-block">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <h2>Switching from OpenClaw?</h2>
                 <p>You loved building with OpenClaw. Now get the same power without the maintenance.</p>
             </div>
-            <div class="migration-grid">
+            <div class="migration-grid reveal">
                 <div class="migration-item">
                     <span class="emoji">🌱</span>
                     <h3>Same open-source roots</h3>
@@ -590,10 +715,10 @@
 <!-- Demo section -->
 <section id="why-jo" class="section-alt">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <h2>It already knows the context.<br>Just ask.</h2>
         </div>
-        <div class="demo-window">
+        <div class="demo-window reveal">
             <div class="demo-bar">
                 <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
                 <span>jo</span><span class="demo-bar-spacer" aria-hidden="true"></span>
@@ -621,11 +746,11 @@
 <!-- 10x faster everywhere: narrative feature cards -->
 <section>
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <h2>10x faster everywhere</h2>
             <p>Whether you're planning a trip, prepping for a meeting, or packing the car with your hands full.</p>
         </div>
-        <div class="narrative-grid">
+        <div class="narrative-grid reveal">
             <div class="narrative-card wide">
                 <span class="emoji">👁</span>
                 <h3>It notices things</h3>
@@ -671,11 +796,11 @@
 <!-- Raw power section -->
 <section class="section-cream">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <h2>Raw power, but fast</h2>
             <p>Quick questions come back in 1-2 seconds. Complex research auto-routes to a reasoning model. You don't choose. Jo does.</p>
         </div>
-        <div class="cmp-grid">
+        <div class="cmp-grid reveal">
             <div class="cmp-card featured">
                 <span class="cmp-tag">Intelligence</span>
                 <h3>Two tiers, not one</h3>
@@ -707,10 +832,10 @@
 
 <section id="how-it-works">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <h2>Up and running in minutes</h2>
         </div>
-        <div class="steps">
+        <div class="steps reveal">
             <div class="step">
                 <div class="step-circle">1</div>
                 <h3>Sign up</h3>
@@ -732,11 +857,11 @@
 
 <section id="features" class="section-alt">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <h2>Built for daily life</h2>
             <p>Not a developer tool. Not a chatbot. An assistant that actually helps.</p>
         </div>
-        <div class="feat-grid">
+        <div class="feat-grid reveal">
             <div class="feat-card hero-feat">
                 <span class="emoji">📅</span>
                 <h3>"Prep me for my 2pm with Sarah Chen"</h3>
@@ -764,10 +889,10 @@
 
 <section id="testimonials">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <h2>What early testers say</h2>
         </div>
-        <div class="test-grid">
+        <div class="test-grid reveal">
             <div class="test-card">
                 <div class="stars">★★★★★</div>
                 <blockquote>"Had a call with a client I hadn't talked to in 6 months. jo surfaced my notes from our last conversation before I even asked."</blockquote>
@@ -799,11 +924,11 @@
 <!-- Sovereignty section -->
 <section id="sovereignty" class="section-dark">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <h2>Your machine. Your data.<br>Not a row in someone else's database.</h2>
             <p>Not a row in someone else's database. Real compute, real storage, only you.</p>
         </div>
-        <div class="sovereignty-grid">
+        <div class="sovereignty-grid reveal">
             <div class="sovereignty-card">
                 <span class="emoji">🖥</span>
                 <h3>Dedicated cloud machine</h3>
@@ -840,10 +965,10 @@
 
 <section class="section-dark" style="padding-top: 0;">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <h2>Built by founders who care about privacy</h2>
         </div>
-        <div class="team-row">
+        <div class="team-row reveal">
             <div class="team-card">
                 <img src="pradeep.jpeg" alt="Pradeep Elankumaran, co-founder of jo" width="56" height="56" loading="lazy">
                 <div>
@@ -867,10 +992,10 @@
 
 <section id="pricing" class="section-alt">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <h2>Pay as you go.<br>No subscription.</h2>
         </div>
-        <div class="pricing-card">
+        <div class="pricing-card reveal">
             <div class="ribbon">Simple Pricing</div>
             <div class="price-big">$5-10<span>/mo</span></div>
             <p>Pay per question. A few cents each. No subscription, no commitment, cancel anytime.</p>
@@ -885,10 +1010,10 @@
 
 <section id="faq">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <h2>FAQ</h2>
         </div>
-        <div class="faq-grid">
+        <div class="faq-grid reveal">
             <div class="faq-item"><h3>What is jo?</h3><p>An AI assistant that runs half on your Mac, half on your own dedicated cloud machine. It searches your notes, photos, emails, messages, and files. Available on macOS, Telegram, and WhatsApp.</p></div>
             <div class="faq-item"><h3>Does my data leave my Mac?</h3><p>Personal data (photos, screen content, local files) never leaves your Mac. Conversations and tasks run on your dedicated cloud machine. Cloud inference uses providers that never train on your data.</p></div>
             <div class="faq-item"><h3>What's a "dedicated machine"?</h3><p>Every jo user gets their own cloud server. A real machine with its own storage accessible from your Mac.</p></div>
@@ -1088,6 +1213,23 @@
     ]
   }
 }
+</script>
+<script>
+    // Scroll-triggered reveal animations
+    (function() {
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(function(el) {
+            observer.observe(el);
+        });
+    })();
 </script>
 </body>
 </html>
