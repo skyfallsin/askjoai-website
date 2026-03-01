@@ -27,7 +27,8 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css">
     <script src="lucide.min.js"></script>
     <style>
 
@@ -48,7 +49,7 @@
             --text-muted: #4A6A8A;
             --border: rgba(0,212,255,0.08);
             --border-hover: rgba(0,212,255,0.25);
-            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             --font-display: 'JetBrains Mono', 'SF Mono', 'Menlo', 'Consolas', monospace;
             --radius: 16px;
         }
@@ -275,17 +276,8 @@
         .test-card:hover { transform: translateY(-4px); border-color: var(--border-hover); }
         .test-card .stars { font-size: 18px; margin-bottom: 12px; color: var(--text); }
         .test-card blockquote { font-size: 15px; line-height: 1.7; color: var(--text); margin-bottom: 16px; font-weight: 500; }
-        .test-author { display: flex; align-items: center; gap: 12px; padding-top: 16px; border-top: 2px solid var(--border); }
-        .test-author img, .test-author .avatar-placeholder { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 3px solid var(--border); }
-        .avatar-placeholder {
-            display: flex; align-items: center; justify-content: center;
-            background: var(--cyan); color: #fff; font-weight: 800;
-            font-size: 16px; font-family: var(--font);
-        }
-        .avatar-placeholder.orange { background: var(--cyan); }
-        .avatar-placeholder.violet { background: var(--violet); }
-        .test-author strong { display: block; font-size: 14px; font-weight: 700; }
-        .test-author span { font-size: 12px; color: var(--text-muted); }
+        .test-author { padding-top: 16px; border-top: 1px solid var(--border); }
+        .test-author span { font-size: 13px; color: var(--text-muted); font-weight: 500; }
 
         /* ── TEAM ── */
         .team-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; max-width: 700px; margin: 0 auto 32px; }
@@ -864,24 +856,21 @@
                 <div class="stars">★★★★★</div>
                 <blockquote>"Had a call with a client I hadn't talked to in 6 months. jo surfaced my notes from our last conversation before I even asked."</blockquote>
                 <div class="test-author">
-                    <div class="avatar-placeholder">SM</div>
-                    <div><strong>Beta tester</strong><span>Consultant</span></div>
+                    <span>— Beta tester, Consultant</span>
                 </div>
             </div>
             <div class="test-card reveal reveal-delay-3">
                 <div class="stars">★★★★★</div>
                 <blockquote>"4,000+ notes in Apple Notes over 8 years. Never looked at most of them. Now jo brings up relevant ones while I'm working."</blockquote>
                 <div class="test-author">
-                    <div class="avatar-placeholder orange">MK</div>
-                    <div><strong>Beta tester</strong><span>Freelance Writer</span></div>
+                    <span>— Beta tester, Freelance Writer</span>
                 </div>
             </div>
             <div class="test-card reveal reveal-delay-5">
                 <div class="stars">★★★★★</div>
                 <blockquote>"Asked jo for 'that photo with the blue door from Portugal' from 2019. Found it in 3 seconds. 47,000 photos."</blockquote>
                 <div class="test-author">
-                    <div class="avatar-placeholder violet">JR</div>
-                    <div><strong>Beta tester</strong><span>Product Designer</span></div>
+                    <span>— Beta tester, Product Designer</span>
                 </div>
             </div>
         </div>
