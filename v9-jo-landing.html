@@ -223,7 +223,7 @@
         .cmp-card .cmp-tag { background: rgba(0,212,255,0.08); color: var(--cyan); }
         .cmp-card h3 { font-family: var(--font-display); font-size: 16px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
         .cmp-card.featured h3 { font-size: 20px; color: var(--hot-pink); }
-        .cmp-card p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+        .cmp-card p { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
         .cmp-card p code { background: var(--bg-dark); color: var(--cyan); padding: 2px 8px; border-radius: 4px; font-size: 0.85em; }
 
         /* ── STEPS ── */
@@ -240,7 +240,7 @@
         .step:nth-child(3) .step-circle { background: #00D4FF; color: #0B1628; }
         .step:hover .step-circle { transform: scale(1.05); }
         .step h3 { font-family: var(--font-display); font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-        .step p { font-size: 14px; color: var(--text-dim); max-width: 260px; margin: 0 auto; line-height: 1.6; }
+        .step p { font-size: 15px; color: var(--text-dim); max-width: 260px; margin: 0 auto; line-height: 1.6; }
         .step p code { background: var(--bg-dark); color: var(--cyan); padding: 1px 6px; border-radius: 4px; font-size: 0.85em; }
 
         /* ── FEATURES ── */
@@ -263,7 +263,7 @@
         .sovereignty-card .icon { color: #00D4FF; }
         .feat-card h3 { font-family: var(--font-display); font-size: 16px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
         .feat-card.hero-feat h3 { font-size: 20px; }
-        .feat-card p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+        .feat-card p { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
 
         /* ── TESTIMONIALS ── */
         .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; max-width: 1000px; margin: 0 auto; }
@@ -329,7 +329,7 @@
         }
         .faq-item:hover { border-color: var(--border-hover); transform: translateY(-4px); }
         .faq-item h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.02em; }
-        .faq-item p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+        .faq-item p { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
 
         /* ── PRIVACY ── */
         .privacy-block { max-width: 700px; margin: 0 auto; text-align: center; }
@@ -414,7 +414,7 @@
         .migration-item:hover { border-color: var(--border-hover); transform: translateY(-4px); }
 
         .migration-item h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.02em; }
-        .migration-item p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+        .migration-item p { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
         .migration-cta { text-align: center; font-size: 16px; color: var(--text-dim); font-weight: 500; }
         .migration-cta strong { color: var(--cyan); }
 
@@ -446,7 +446,7 @@
         .sovereignty-card:hover { border-color: var(--border-hover); transform: translateY(-4px); }
 
         .sovereignty-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #fff; letter-spacing: -0.02em; }
-        .sovereignty-card p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+        .sovereignty-card p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.6; }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
@@ -680,51 +680,6 @@
                 <svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF6600"/><path d="M12 14.5L7.5 6H9.5L12 11L14.5 6H16.5L12 14.5V18H12V14.5Z" fill="white"/></svg>
                 Backed by Y Combinator
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- Switching from OpenClaw? -->
-<section class="migration-section">
-    <div class="container">
-        <div class="migration-block">
-            <div class="section-header">
-                <h2 class="reveal">Switching from OpenClaw?</h2>
-                <p class="reveal reveal-delay-1">I give you the same power without the maintenance.</p>
-            </div>
-            <div class="migration-grid">
-                <div class="migration-item reveal reveal-delay-1">
-                    <span class="icon"><i data-lucide="sprout"></i></span>
-                    <h3>Same open-source roots</h3>
-                    <p>I stand on the same open-source giants you trust. Battle-tested code, community my creators contribute back to.</p>
-                </div>
-                <div class="migration-item reveal reveal-delay-2">
-                    <span class="icon"><i data-lucide="terminal"></i></span>
-                    <h3>No terminal required</h3>
-                    <p>No config files, no API keys, no Node.js. Sign up and go.</p>
-                </div>
-                <div class="migration-item reveal reveal-delay-3">
-                    <span class="icon"><i data-lucide="monitor"></i></span>
-                    <h3>Your own machine</h3>
-                    <p>Not a shared server. Your storage, your compute, your data.</p>
-                </div>
-                <div class="migration-item reveal reveal-delay-4">
-                    <span class="icon"><i data-lucide="cpu"></i></span>
-                    <h3>Same model flexibility</h3>
-                    <p>OpenAI, Anthropic, Grok, Kimi, plus local. Swap anytime.</p>
-                </div>
-                <div class="migration-item reveal reveal-delay-5">
-                    <span class="icon"><i data-lucide="lock"></i></span>
-                    <h3>Privacy you can trust</h3>
-                    <p>Your personal data stays on your Mac. My cloud inference never touches your training data. Same promise, better UX.</p>
-                </div>
-                <div class="migration-item reveal reveal-delay-6">
-                    <span class="icon"><i data-lucide="arrow-right-circle"></i></span>
-                    <h3>Seamless migration</h3>
-                    <p>Sign up, import your preferences, done. Your workflows carry over. The terminal doesn't.</p>
-                </div>
-            </div>
-            <p class="migration-cta reveal reveal-delay-7">Already an OpenClaw power user? <strong>You'll feel right at home.</strong></p>
         </div>
     </div>
 </section>
@@ -1016,6 +971,51 @@
                 <div class="d"><div class="label">Per question</div><div class="val">1-5¢</div></div>
                 <div class="d"><div class="label">First month</div><div class="val">Free</div></div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Switching from OpenClaw? -->
+<section class="migration-section">
+    <div class="container">
+        <div class="migration-block">
+            <div class="section-header">
+                <h2 class="reveal">Switching from OpenClaw?</h2>
+                <p class="reveal reveal-delay-1">I give you the same power without the maintenance.</p>
+            </div>
+            <div class="migration-grid">
+                <div class="migration-item reveal reveal-delay-1">
+                    <span class="icon"><i data-lucide="sprout"></i></span>
+                    <h3>Same open-source roots</h3>
+                    <p>I stand on the same open-source giants you trust. Battle-tested code, community my creators contribute back to.</p>
+                </div>
+                <div class="migration-item reveal reveal-delay-2">
+                    <span class="icon"><i data-lucide="terminal"></i></span>
+                    <h3>No terminal required</h3>
+                    <p>No config files, no API keys, no Node.js. Sign up and go.</p>
+                </div>
+                <div class="migration-item reveal reveal-delay-3">
+                    <span class="icon"><i data-lucide="monitor"></i></span>
+                    <h3>Your own machine</h3>
+                    <p>Not a shared server. Your storage, your compute, your data.</p>
+                </div>
+                <div class="migration-item reveal reveal-delay-4">
+                    <span class="icon"><i data-lucide="cpu"></i></span>
+                    <h3>Same model flexibility</h3>
+                    <p>OpenAI, Anthropic, Grok, Kimi, plus local. Swap anytime.</p>
+                </div>
+                <div class="migration-item reveal reveal-delay-5">
+                    <span class="icon"><i data-lucide="lock"></i></span>
+                    <h3>Privacy you can trust</h3>
+                    <p>Your personal data stays on your Mac. My cloud inference never touches your training data. Same promise, better UX.</p>
+                </div>
+                <div class="migration-item reveal reveal-delay-6">
+                    <span class="icon"><i data-lucide="arrow-right-circle"></i></span>
+                    <h3>Seamless migration</h3>
+                    <p>Sign up, import your preferences, done. Your workflows carry over. The terminal doesn't.</p>
+                </div>
+            </div>
+            <p class="migration-cta reveal reveal-delay-7">Already an OpenClaw power user? <strong>You'll feel right at home.</strong></p>
         </div>
     </div>
 </section>
